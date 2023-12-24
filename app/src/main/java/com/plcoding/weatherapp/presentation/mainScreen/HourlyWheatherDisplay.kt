@@ -1,8 +1,9 @@
-package com.plcoding.weatherapp.presentation
+package com.plcoding.weatherapp.presentation.mainScreen
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
@@ -22,7 +23,7 @@ fun HourlyWeatherDisplay(
     modifier: Modifier = Modifier,
     textColor: Color = Color.White
 ) {
-    val formattedTime = remember(weatherData) {
+    val formatTime = remember(weatherData) {
         weatherData.time.format(
             DateTimeFormatter.ofPattern("HH:mm")
         )
@@ -32,19 +33,17 @@ fun HourlyWeatherDisplay(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.SpaceBetween
     ) {
-        Text(
-            text = formattedTime,
-            color = Color.LightGray
-        )
+        Text(text = formatTime, color = Color.LightGray)
         Image(
             painter = painterResource(id = weatherData.weatherType.iconRes),
             contentDescription = null,
             modifier = Modifier.width(40.dp)
         )
         Text(
-            text = "${weatherData.temperatureCelsius}°C",
-            color = textColor,
+            text = "${weatherData.temperature}C",
+            color = Color.White,
             fontWeight = FontWeight.Bold
         )
     }
+
 }

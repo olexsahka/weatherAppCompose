@@ -2,7 +2,7 @@ package com.plcoding.weatherapp.data.remote
 
 import com.squareup.moshi.Json
 
-data class WeatherDto(
+data class WeatherDTO (
     @field:Json(name = "hourly")
-    val weatherData: WeatherDataDto
+    val weatherData: WeatherDataDto,
 )
